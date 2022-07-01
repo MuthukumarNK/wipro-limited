@@ -1,0 +1,52 @@
+<h1>2 Way Data Binding</h1>
+<br>
+<p>
+    Two way data binding means that changes made to our model in the component are propagated  to the
+    view and that any changes made in the view are immediately updated in the underlying  component data
+</p>
+<br>
+<p>
+    Two way data binding in data entry forms. Whenever a user makes changes to a form field, we would
+    like to update as well
+</p>
+<br>
+<hr>
+<br>
+<h2>Two Way Data Binding Example</h2>
+<h2>Template Driven Forms!</h2>
+<p>Enter Your Name</p>
+<input type="text" name="fname" [(ngModel)]="a">
+<p>Your Full Name is : {{a}}</p>
+<button (click)="clearValue();">Clear Name</button>
+<hr>
+
+
+<div class="container">
+    <h1>Employee Form - 2 Way Data Binding</h1>
+    <form (ngSubmit)=onSubmit() ngNativeVakidate>
+        <div>
+            <label for="name">Name</label>
+            <input type="text" name="nme" id="name" required [(ngModel)]="emp.name">
+        </div>
+
+        <div>
+            <label for="alterEgo">Department</label>
+            <input type="text" name="det" id="dept" required [(ngModel)]="emp.dept">
+        </div>
+
+        <div>
+            <label for="power">Employee Power</label>
+            <select type="text" name="poer" id="power" required [(ngModel)]="emp.power">
+            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+            </select>
+        </div>
+
+        <input type="submit" value="Submit!">
+    </form>
+
+    <div *ngIf="submitted">
+        <div><span>Name: </span>{{emp.name| uppercase}}</div>
+        <div><span>Department: </span>{{emp.dept}}</div>
+        <div><span>Power: </span>{{emp.power}}</div>
+    </div>
+</div>
